@@ -5,35 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Konyvtar"
         mc:Ignorable="d"
-        Title="Könyvtár" Height="500" Width="600">
+        Title="Könyvtár App" Height="400" Width="550" Background="Black">
     <Grid>
-        <TabControl>
-            <TabItem Name="Konyvek" Header="Könyvek">
+        <TabControl Background="Black" BorderBrush="#FF4B5BA4" Foreground="Black">
+            <TabItem Name="Konyvek" Header="Könyvek" Loaded="Konyvek_Loaded">
                 <DockPanel>
                     <DataGrid x:Name="Konyv">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="KönyvId" Binding="{Binding id}">
-                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="KönyvID" Binding="{Binding ID}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Szerző" Binding="{Binding szerzo}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Könyv Címe" Binding="{Binding cim}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Könyv címe" Binding="{Binding cim}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Kiadás éve" Binding="{Binding ev}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Kiadó" Binding="{Binding kiado}"></DataGridTextColumn>
-                            <DataCheckBox Header="Kölcsönözött" Binding="{Binding ig}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
             </TabItem>
-            <TabItem Name="Tagok" Header="Tagok">
+            <TabItem Name="Tagok" Header="Tagok" Loaded="Tagok_Loaded">
                 <DockPanel>
                     <DataGrid x:Name="Tag">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Olvasod" Binding="{Binding olvasoID}">
-                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="OlvasóID" Binding="{Binding olvasoID}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Név" Binding="{Binding nev}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Születési dátum" Binding="{Binding szul}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Irányitószám" Binding="{Binding szam}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Irányítószám" Binding="{Binding szam}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Település neve" Binding="{Binding telepules}"></DataGridTextColumn>
                             <DataGridTextColumn Header="Utca/házszám" Binding="{Binding utca}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Name="Kolcson" Header="Kölcsönzött" Loaded="Kolcson_Loaded">
+                <DockPanel>
+                    <DataGrid x:Name="Kiadott">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="KölcsönID" Binding="{Binding kolcsonID }"></DataGridTextColumn>
+                            <DataGridTextColumn Header="OlvasóID" Binding="{Binding olvasoID }"></DataGridTextColumn>
+                            <DataGridTextColumn Header="KönyvID" Binding="{Binding konyvID }"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Kiadás dátuma" Binding="{Binding kdatum}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Visszaadás dátuma" Binding="{Binding vdatum}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
